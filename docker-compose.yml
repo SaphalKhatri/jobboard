@@ -1,0 +1,22 @@
+
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: jobboard_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - jobboard_network
+
+volumes:
+  pgdata:
+
+networks:
+  jobboard_network:
+    driver: bridge

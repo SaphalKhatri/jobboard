@@ -25,7 +25,8 @@ class Job(models.Model):
         ('SENIOR', 'Senior Level'),
         ('LEAD', 'Lead / Manager'),
     ]
-    company= models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,related_name="jobs")
+    category= models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,related_name="jobs")
+    company=models.ForeignKey(Company,on_delete=models.CASCADE,related_name='jobs')
     title = models.CharField(max_length=255)
     description = models.TextField()
     location = models.CharField(max_length=255)
